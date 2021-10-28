@@ -85,7 +85,7 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan ./dev \
-        -var "vsphere_password=${{ secret.vsphere_password }}
+        -var "vsphere_password=${{ secrets.vsphere_password }}"
 
 
       # On push to main, build or change infrastructure according to Terraform configuration files
@@ -93,4 +93,4 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve ./${{ env.environment }} \
-        -var "vsphere_password=${{ secret.vsphere_password }}"
+        -var "vsphere_password=${{ secrets.vsphere_password }}"
