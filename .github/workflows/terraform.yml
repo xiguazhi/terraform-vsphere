@@ -55,7 +55,7 @@ jobs:
     name: 'Terraform'
     runs-on: self-hosted
     env:
-      version: 1.0.10
+      version: '1.0.10'
       runner_arch: linux_amd64
       TF_VAR_vsphere_user: administrator
     environment: dev
