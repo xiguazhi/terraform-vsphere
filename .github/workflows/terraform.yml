@@ -50,7 +50,7 @@ on:
     - main
   pull_request:
 env:
-  version: '1.0.10'
+  tf_var: '1.0.10'
   runner_arch: linux_amd64
   TF_VAR_vsphere_user: administrator
 
