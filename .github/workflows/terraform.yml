@@ -72,7 +72,7 @@ jobs:
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Download Terraform
-      run: wget https://releases.hashicorp.com/terraform/${{ version }}/terraform_${{ env.version }}_${{ env.runner_arch }}.zip && unzip terraform_${{ env.version }}_${{ env.runner_arch }}.zip -d terraform
+      run: wget https://releases.hashicorp.com/terraform/${{ env.tf_ver }}/terraform_${{ version }}_${{ env.runner_arch }}.zip && unzip terraform_${{ version }}_${{ env.runner_arch }}.zip -d terraform
 
     #Install Terraform CLI and configure with vsphere credentials.
     - name: Install Terraform
