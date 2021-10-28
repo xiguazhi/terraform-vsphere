@@ -58,15 +58,17 @@ jobs:
   echo_environment_vars:
     name: 'echo vars'
     runs-on: self-hosted
-  steps:
-  - name: Echo tf_ver
-    run: echo ${{ tf_ver }}
+
+    steps:
+
+    - name: Echo tf_ver
+      run: echo ${{ tf_ver }}
   
-  - name: Echo runner_arch
-    run: echo ${{ runner_arch }}
+    - name: Echo runner_arch
+      run: echo ${{ runner_arch }}
     
-  - name: Echo vsphere_user
-    run: echo ${{ TF_VAR_VSPHERE_USER }}
+    - name: Echo vsphere_user
+      run: echo ${{ TF_VAR_VSPHERE_USER }}
 
   terraform-dev:
     name: 'Terraform'
