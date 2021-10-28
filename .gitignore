@@ -1,0 +1,27 @@
+
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
+
+#Sensetive Info
+*private*
+*.hcl
+*.log
+*.bak
+*.backup
+*.exe
+*.dll
+*.DS_Store
+*.swp
+
+
+# tf lock file
+.terraform.lock.hcl
+#VIM Junk
+*.un~
