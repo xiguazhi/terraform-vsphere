@@ -68,7 +68,7 @@ jobs:
       run: echo ${{ env.runner_arch }}
     
     - name: Echo vsphere_user
-      run: echo ${{ env.TF_VAR_VSPHERE_USER }}
+      run: echo ${{ env.TF_VAR_vsphere_user }}
 
   terraform-dev:
     name: 'Terraform'
