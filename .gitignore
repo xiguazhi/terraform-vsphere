@@ -28,7 +28,7 @@ override.tf.json
 *.dll
 *.DS_Store
 *.swp
-
+*.ENV
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
