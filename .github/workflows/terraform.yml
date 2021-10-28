@@ -50,7 +50,7 @@ on:
     - main
   pull_request:
 env:
-  tf_ver: "1.0.10"
+  tf_ver: 1.0.10
   runner_arch: "linux_amd64"
   TF_VAR_vsphere_user: "administrator"
 
@@ -87,7 +87,7 @@ jobs:
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Download Terraform
-      run: wget https://releases.hashicorp.com/terraform/${{ tf_ver }}/terraform_${{ tf_ver }}_${{ env.runner_arch }}.zip && unzip terraform_${{ env.tf_ver }}_${{ env.runner_arch }}.zip -d terraform
+      run: wget https://releases.hashicorp.com/terraform/${{ env.tf_ver }}/terraform_${{ env.tf_ver }}_${{ env.runner_arch }}.zip && unzip terraform_${{ env.tf_ver }}_${{ env.runner_arch }}.zip -d terraform
 
     #Install Terraform CLI and configure with vsphere credentials.
     - name: Install Terraform
