@@ -91,7 +91,8 @@ jobs:
 
     #Install Terraform CLI and configure with vsphere credentials.
     - name: Install Terraform
-      run: mv terraform/terraform /usr/local/bin/terraform
+      run: chown -R administrator:administrator terraform && \ 
+        mv terraform/terraform /usr/local/bin/terraform
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
