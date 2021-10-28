@@ -9,6 +9,15 @@
 # .tfvars files
 *.tfvars
 
+
+# Ignore override files as they are usually used to override resources locally and so
+# are not checked in
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+
 #Sensetive Info
 *private*
 *.hcl
@@ -20,6 +29,9 @@
 *.DS_Store
 *.swp
 
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
 
 # tf lock file
 .terraform.lock.hcl
