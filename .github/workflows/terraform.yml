@@ -49,15 +49,15 @@ on:
     branches:
     - main
   pull_request:
+env:
+  version: '1.0.10'
+  runner_arch: linux_amd64
+  TF_VAR_vsphere_user: administrator
 
 jobs:
   terraform-dev:
     name: 'Terraform'
     runs-on: self-hosted
-    env:
-      version: '1.0.10'
-      runner_arch: linux_amd64
-      TF_VAR_vsphere_user: administrator
     environment: dev
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
