@@ -76,7 +76,7 @@ jobs:
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
-      run: terraform fmt -check ./${{ secrets.environment }} -diff
+      run: terraform fmt -check -diff ./${{ secrets.environment }} 
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
