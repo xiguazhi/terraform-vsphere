@@ -56,21 +56,6 @@ env:
   environment: dev
 
 jobs:
-  echo_environment_vars:
-    name: 'echo vars'
-    runs-on: self-hosted
-
-    steps:
-
-    - name: Echo tf_ver
-      run: echo ${{ env.tf_ver }}
-  
-    - name: Echo runner_arch
-      run: echo ${{ env.runner_arch }}
-    
-    - name: Echo vsphere_user
-      run: echo ${{ env.TF_VAR_vsphere_user }}
-
   terraform-dev:
     name: 'Terraform'
     runs-on: self-hosted
@@ -88,7 +73,7 @@ jobs:
     
     # Testing environment variable
     - name: echo environment
-      run: echo ${{ environment }}
+      run: echo ${{ secrets.environment }}
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
@@ -96,16 +81,15 @@ jobs:
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
-      run: terraform fmt -check ./${{ environment }}
+      run: terraform fmt -check ./${{ secrets.environment }}
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan ./${{ env.environment }} \
-        -var "vsphere_password=${{ secrets.vsphere_password }}"
+      run: terraform plan ./${{ secrets.environment }} -var "vsphere_password=${{ secrets.vsphere_password }}"
 
 
       # On push to main, build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform apply -auto-approve ./${{ ENVIRONMENT -var "vsphere_password=${{ secrets.vsphere_password }}"
+      run: terraform apply -auto-approve ./${{ secrets.ENVIRONMENT }} -var "vsphere_password=${{ secrets.vsphere_password }}"
