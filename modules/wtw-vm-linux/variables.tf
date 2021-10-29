@@ -54,7 +54,7 @@ variable "env" {
             ipv4submask = ["24"],
             ipv4network = "Server VLAN"
             vmgateway = "10.0.30.1",
-            dns_server_list = ["1.1.1.1","1.0.0.1"],
+            dns_server_list = ["10.0.30.63"],
             alias = "TEXAS"
         }
         QA  = {
@@ -72,7 +72,7 @@ variable "env" {
             ipv4submask = ["24"],
             ipv4network = "Server VLAN",
             vmgateway = "10.0.30.1",
-            dns_server_list = ["1.1.1.1","1.0.0.1"],
+            dns_server_list = ["10.0.30.63"],
             alias = "TEXAS"
 
         },
@@ -91,7 +91,7 @@ variable "env" {
             ipv4submask = ["24"],
             ipv4network = "Server VLAN",
             vmgateway = "10.0.30.1",
-            dns_server_list = ["1.1.1.1","1.0.0.1"],
+            dns_server_list = ["10.0.30.63"],
             alias = "UTAH"
 
         }
@@ -110,7 +110,7 @@ variable "env" {
             ipv4submask = ["24"],
             ipv4network = "Server VLAN",
             vmgateway = "10.0.30.1",
-            dns_server_list = ["1.1.1.1","1.0.0.1"],
+            dns_server_list = ["10.0.30.63"],
             alias = "UTAH"
 
         }
@@ -129,7 +129,7 @@ variable "env" {
             ipv4submask = ["24"],
             ipv4network = "Server VLAN",
             vmgateway = "10.0.30.1",
-            dns_server_list = ["1.1.1.1","1.0.0.1"],
+            dns_server_list = ["10.0.30.63"],
             alias = "UTAH"
         }
     }
