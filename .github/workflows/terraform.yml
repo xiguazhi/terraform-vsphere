@@ -85,29 +85,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
-    - name: Download Terraform
-      run: wget https://releases.hashicorp.com/terraform/${{ env.tf_ver }}/terraform_${{ env.tf_ver }}_${{ env.runner_arch }}.zip && unzip terraform_${{ env.tf_ver }}_${{ env.runner_arch }}.zip -d terraform
-
-    #Changed permissions on terraform so it can be moved.
-    - name: Modify Permissions on Terraform
-      run: chown -R administrator:administrator terraform
-
-    #Install Terraform CLI 
-    - name: Terraform Install
-      run: mv terraform/terraform /usr/local/bin/terraform
-
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
-      run: terraform fmt -check ./dev
+      run: terraform fmt -check ./${{ env.environment }}
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan ./$ENVIRONMENT \
+      run: terraform plan ./${{ env.environment }} \
         -var "vsphere_password=${{ secrets.vsphere_password }}"
 
 
