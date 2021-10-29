@@ -53,6 +53,7 @@ env:
   tf_ver: 1.0.10
   runner_arch: "linux_amd64"
   TF_VAR_vsphere_user: "administrator"
+  environment: dev
 
 jobs:
   echo_environment_vars:
@@ -88,7 +89,7 @@ jobs:
     # Testing environment variable
     - name: echo environment
       run: echo ${{ environment }}
-      
+
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
