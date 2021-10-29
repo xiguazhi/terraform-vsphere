@@ -76,11 +76,11 @@ jobs:
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
-      run: terraform fmt -check ./${{ secrets.environment }}
+      run: terraform fmt -check ./${{ secrets.environment }} -diff
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan ./${{ secrets.environment }} -var "vsphere_password=${{ secrets.vsphere_password }}"
+      run: terraform -chdir "./${{ secrets.environment }}" plan -var "vsphere_password=${{ secrets.vsphere_password }}"
 
 
       # On push to main, build or change infrastructure according to Terraform configuration files
