@@ -84,3 +84,25 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform -chdir="./${{ secrets.ENVIRONMENT }}" apply -auto-approve -var "vsphere_password=${{ secrets.vsphere_password }}" -var "vsphere_user=${{ secrets.vsphere_user }}"
+
+  ansible-dev:
+    name: 'ansible'
+    runs-on: self-hosted
+    environment: dev
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - name: Checkout dynamic inventory files
+      uses: actions/checkout@v2
+      with:
+        repository: ansible-inventory
+
+    - name: Checkout playbook
+      uses: actions/checkout@v2
+      with:
+        repository: ansible-playbooks
+
+    - name: Ansible run playbook against ${{ secrets.vspher_OS }}
+      run: ansible-playbook -i ../ansible-inventory/ubuntu.vmware.yml --vault-password-file ${{ secrets.vault_pwd_file }} ./basic-playbook.yml
