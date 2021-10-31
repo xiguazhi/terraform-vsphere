@@ -1,11 +1,3 @@
-data "terraform_remote_state" "foo" {
-  backend = "local"
-
-  config = {
-    path = "/home/administrator/terraform/terraform.tfstate"
-  }
-}
-
 module "openDNS" {
   environment      = "dev"
   source           = "../modules/wtw-vm-linux/"
