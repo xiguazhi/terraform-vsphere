@@ -97,13 +97,13 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: xiguazhi/ansible-inventory
-        path: ./ansible-inventory/
+        path: ../ansible-inventory/
 
     - name: Checkout playbook
       uses: actions/checkout@v2
       with:
         repository: xiguazhi/ansible-playbooks
-        path: ./ansible-playbooks/
+        path: ../ansible-playbooks/
 
     - name: Ansible run playbook against ${{ secrets.vspher_OS }}
       run: ansible-playbook -i ../ansible-inventory/ubuntu.vmware.yml --vault-password-file ${{ secrets.vault_pwd_file }} ./ansible-playbooks/basic-playbook.yml
