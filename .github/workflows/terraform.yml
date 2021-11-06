@@ -42,9 +42,4 @@ jobs:
 
     - name: Trigger next workflow
       if: success()
-      run: |
-        curl -H "Accept: application/vnd.github.everest-preview+json" \
-        -H "Authorization: token ${{ secrets.workflows_pat }}" \
-        --request POST \
-        --data '{"event_type": "Provision"}' \
-        https://api.github.com/repos/xiguazhi/ansible-playbook/dispatches
+      run: curl -H "Accept: application/vnd.github.everest-preview+json" -H "Authorization: token ${{ secrets.workflows_pat }}" --request POST --data '{"event_type": "Provision"}' https://api.github.com/repos/xiguazhi/ansible-playbook/dispatches
