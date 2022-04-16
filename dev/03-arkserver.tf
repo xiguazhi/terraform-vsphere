@@ -1,4 +1,4 @@
-module "pipeline" {
+module "arkserver" {
   environment      = "dev"
   source           = "../modules/wtw-vm-linux/"
   vmtemp           = "Ubuntu2004"
