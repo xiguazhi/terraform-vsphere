@@ -184,6 +184,10 @@ variable "disk_size_gb" {
     default = ["75"]
 }
 
+variable "memory" {}
+variable "num_cores_per_socket" {}
+variable "memory_hot_add_enabled" {}
+variable "cpu_number" {}
 variable "vsphere_user" {}
 
 variable "vsphere_password" {}
