@@ -5,5 +5,6 @@ module "minecraft" {
   application_name = "minecraft"
   vsphere_user     = var.vsphere_user
   vsphere_password = var.vsphere_password
+  disk_size_gb     = ["300"]
     
 }

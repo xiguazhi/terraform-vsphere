@@ -178,6 +178,11 @@ variable "vmtemp" {
     description = "VM Template."
 }
 
+variable "disk_size_gb" {
+    type = string
+    description = "Disk size in GB"
+}
+
 variable "vsphere_user" {}
 
 variable "vsphere_password" {}
