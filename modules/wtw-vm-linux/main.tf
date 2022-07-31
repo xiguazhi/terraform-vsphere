@@ -25,6 +25,7 @@ module "wtw-onprem-linux" {
   cpu_number                = var.cpu_number ? var.cpu_number : var.env[var.environment].cpu_number
   num_cores_per_socket      = var.num_cores_per_socket ? var.num_cores_per_socket : var.env[var.environment].num_cores_per_socket
   memory_hot_add_enabled    = var.memory_hot_add_enabled ? var.memory_hot_add_enabled : var.env[var.environment].memory_hot_add_enabled
+  memory_share_count        = var.memory_share_count
   ram_size                  = var.memory ? var.memory : var.env[var.environment].ram_size
   disk_size_gb              = var.disk_size_gb
   domain                    = "bsorenson.io"
