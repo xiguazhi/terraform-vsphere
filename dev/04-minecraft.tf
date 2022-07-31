@@ -1,4 +1,4 @@
-module "openDNS" {
+module "minecraft" {
   environment      = "dev"
   source           = "../modules/wtw-vm-linux/"
   vmtemp           = "Ubuntu2004"
