@@ -45,7 +45,6 @@ variable "env" {
             vmrp = "prod",
             vmfolder = "Pipeline",
             ds_cluster = "wdBlue",
-            
             instances = 1,
             cpu_number = 1,
             num_cores_per_socket = 4,
