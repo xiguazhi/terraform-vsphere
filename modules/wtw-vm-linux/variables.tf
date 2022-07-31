@@ -179,8 +179,9 @@ variable "vmtemp" {
 }
 
 variable "disk_size_gb" {
-    type = string
+    type = list
     description = "Disk size in GB"
+    default = ["75"]
 }
 
 variable "vsphere_user" {}
