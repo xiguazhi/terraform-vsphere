@@ -22,11 +22,11 @@ module "wtw-onprem-linux" {
   datastore                 = var.env[var.environment].ds_cluster #You can use datastore variable instead
   vmtemp                    = var.vmtemp
   instances                 = var.env[var.environment].instances
-  cpu_number                = var.cpu_number ?  var.env[var.environment].cpu_number : var.cpu_number
-  num_cores_per_socket      = var.num_cores_per_socket ?  var.env[var.environment].num_cores_per_socket : var.num_cores_per_socket
-  memory_hot_add_enabled    = var.memory_hot_add_enabled ? var.env[var.environment].memory_hot_add_enabled :  var.memory_hot_add_enabled
+  cpu_number                = var.cpu_number == null ?  var.env[var.environment].cpu_number : var.cpu_number
+  num_cores_per_socket      = var.num_cores_per_socket == null ?  var.env[var.environment].num_cores_per_socket : var.num_cores_per_socket
+  memory_hot_add_enabled    = var.memory_hot_add_enabled  == null ? var.env[var.environment].memory_hot_add_enabled :  var.memory_hot_add_enabled
   memory_share_count        = var.memory_share_count
-  ram_size                  = var.memory ? var.memory : var.env[var.environment].ram_size
+  ram_size                  = var.memory == null ? var.memory : var.env[var.environment].ram_size
   disk_size_gb              = var.disk_size_gb
   domain                    = "bsorenson.io"
   network = {
