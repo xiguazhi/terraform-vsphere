@@ -45,7 +45,6 @@ variable "env" {
             vmrp = "prod",
             vmfolder = "Pipeline",
             ds_cluster = "wdBlue",
-            
             instances = 1,
             cpu_number = 1,
             num_cores_per_socket = 4,
@@ -177,6 +176,12 @@ variable "environment" {
 variable "vmtemp" {
     type = string
     description = "VM Template."
+}
+
+variable "disk_size_gb" {
+    type = list
+    description = "Disk size in GB"
+    default = ["75"]
 }
 
 variable "vsphere_user" {}

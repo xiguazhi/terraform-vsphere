@@ -12,7 +12,7 @@ provider "vsphere" {
 
 module "wtw-onprem-linux" {
   source                    = "Terraform-VMWare-Modules/vm/vsphere"
-  version                   = "3.4.0"
+  version                   = "3.5.0"
   count                     = var.env[var.environment].instances
   vmname                    = format("${var.env[var.environment].app_prefix}${var.namefmt}-${var.application_name}", count.index + 1)
   staticvmname              = format("${var.env[var.environment].app_prefix}${var.namefmt}-${var.application_name}", count.index + 1)
@@ -26,6 +26,7 @@ module "wtw-onprem-linux" {
   num_cores_per_socket      = var.env[var.environment].num_cores_per_socket
   memory_hot_add_enabled    = var.env[var.environment].memory_hot_add_enabled
   ram_size                  = var.env[var.environment].ram_size
+  disk_size_gb              = var.disk_size_gb
   domain                    = "bsorenson.io"
   network = {
     "Server VLAN" = var.ipv4_address # To use DHCP create Empty list ["",""]
