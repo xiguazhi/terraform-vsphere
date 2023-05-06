@@ -13,7 +13,6 @@ provider "vsphere" {
 module "wtw-onprem-linux" {
   source                    = "Terraform-VMWare-Modules/vm/vsphere"
   version                   = "3.5.0"
-  count                     = var.env[var.environment].instances
   vmname                    = format("${var.env[var.environment].app_prefix}${var.namefmt}-${var.application_name}", count.index + 1)
   staticvmname              = format("${var.env[var.environment].app_prefix}${var.namefmt}-${var.application_name}", count.index + 1)
   dc                        = var.env[var.environment].dc
@@ -21,7 +20,7 @@ module "wtw-onprem-linux" {
   vmfolder                  = var.env[var.environment].vmfolder #Works with ESXi/Resources
   datastore                 = var.env[var.environment].ds_cluster #You can use datastore variable instead
   vmtemp                    = var.vmtemp
-  instances                 = var.env[var.environment].instances
+  instances                 = var.node_count != 0 ? var.node_count : var.env[var.environment] 
   cpu_number                = var.env[var.environment].cpu_number
   num_cores_per_socket      = var.env[var.environment].num_cores_per_socket
   memory_hot_add_enabled    = var.env[var.environment].memory_hot_add_enabled
