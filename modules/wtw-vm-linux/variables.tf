@@ -42,7 +42,7 @@ variable "env" {
             vcenter_server = "10.0.4.41"
             dc = "bsorenson.io",
             app_prefix = "bsd",
-            vmrp = "prod",
+            vmrp = "dev",
             vmfolder = "Pipeline",
             ds_cluster = "wdBlue",
             instances = 1,
@@ -58,9 +58,9 @@ variable "env" {
         }
         QA  = {
             vcenter_server = "10.0.4.41"
-            dc = "TEXAS",
-            app_prefix = "txq",
-            vmrp = "Richardson",
+            dc = "bsorenson.io",
+            app_prefix = "bsq",
+            vmrp = "qa",
             vmfolder = "QA/Application",
             ds_cluster = "wdBlue",           
             instances = 2,
@@ -77,9 +77,9 @@ variable "env" {
         },
        stage = {
            vcenter_server = "vcenter.bsorenson.io"
-            dc = "UTAH",
-            app_prefix = "wjs",
-            vmrp = "WestJordan",
+            dc = "bsorenson.io",
+            app_prefix = "bss",
+            vmrp = "stage",
             vmfolder = "Stage/Application",
             ds_cluster = "wdBlue",
             instances = 3,
@@ -91,14 +91,14 @@ variable "env" {
             ipv4network = "Server VLAN",
             vmgateway = "10.0.30.1",
             dns_server_list = ["10.0.30.63"],
-            alias = "UTAH"
+            alias = "bsorenson"
 
         }
         prod = {
             vcenter_server = "vcenter.bsorenson.io"
-            dc = "UTAH",
-            app_prefix = "wjp",
-            vmrp = "WestJordan",
+            dc = "bsorenson.io",
+            app_prefix = "bsp",
+            vmrp = "prod",
             vmfolder = "prod/Application",
             ds_cluster = "wdBlue",
             instances = 4,
@@ -121,7 +121,7 @@ variable "env" {
             vmfolder = "prod/Application",
             ds_cluster = "wdBlue",
             instances = 4,
-            cpu_number = 1,
+            cpu_number = 4,
             num_cores_per_socket = 4,
             ram_size = 8192,
             memory_hot_add_enabled = true,
@@ -187,3 +187,9 @@ variable "disk_size_gb" {
 variable "vsphere_user" {}
 
 variable "vsphere_password" {}
+
+variable "node_count" {
+    type = number
+    description = "Node count for # of nodes to create using module."
+    default = 0
+}
