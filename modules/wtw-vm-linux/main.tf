@@ -20,7 +20,7 @@ module "wtw-onprem-linux" {
   vmfolder                  = var.env[var.environment].vmfolder #Works with ESXi/Resources
   datastore                 = var.env[var.environment].ds_cluster #You can use datastore variable instead
   vmtemp                    = var.vmtemp
-  instances                 = var.node_count != 0 ? var.node_count : var.env[var.environment] 
+  instances                 = var.node_count != 0 ? var.node_count : var.env[var.environment].instances
   cpu_number                = var.env[var.environment].cpu_number
   num_cores_per_socket      = var.env[var.environment].num_cores_per_socket
   memory_hot_add_enabled    = var.env[var.environment].memory_hot_add_enabled
