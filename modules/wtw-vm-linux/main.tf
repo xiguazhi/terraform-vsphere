@@ -33,4 +33,5 @@ module "wtw-onprem-linux" {
   dns_server_list  = var.env[var.environment].dns_server_list
   vmgateway        = var.ipv4_gateway
   network_type    = ["vmxnet3"]
+  ipv4submask = ["24"]
 }
