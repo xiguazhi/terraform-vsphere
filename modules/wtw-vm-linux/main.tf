@@ -21,7 +21,6 @@ module "wtw-onprem-linux" {
   vmtemp                    = var.vmtemp
   instances                 = var.node_count != 0 ? var.node_count : var.env[var.environment].instances
   cpu_number                = var.env[var.environment].cpu_number
-  num_cores_per_socket      = var.env[var.environment].num_cores_per_socket
   memory_hot_add_enabled    = var.env[var.environment].memory_hot_add_enabled
   ram_size                  = var.env[var.environment].ram_size
   disk_size_gb              = var.disk_size_gb
