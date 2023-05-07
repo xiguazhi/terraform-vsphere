@@ -5,5 +5,5 @@ module "arkserver" {
   application_name = "arkserver"
   vsphere_user     = var.vsphere_user
   vsphere_password = var.vsphere_password
-    
+
 }

@@ -5,5 +5,5 @@ module "openDNS" {
   application_name = "openDNS"
   vsphere_user     = var.vsphere_user
   vsphere_password = var.vsphere_password
-    
+
 }
