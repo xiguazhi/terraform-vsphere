@@ -144,6 +144,12 @@ variable "application_name" {
   default = "actions"
 }
 
+variable "network" {
+  default = {
+    "Server VLAN" = [""] # To use DHCP create Empty list ["",""]
+  }
+}
+
 variable "ipv4_gateway" {
   type    = string
   default = "10.0.30.1"

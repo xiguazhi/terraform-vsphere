@@ -26,11 +26,11 @@ module "wtw-onprem-linux" {
   ram_size               = var.env[var.environment].ram_size
   disk_size_gb           = var.disk_size_gb
   domain                 = "bsorenson.io"
-  network = {
+  network                = var.network == null ? {
     "Server VLAN" = var.ipv4_address # To use DHCP create Empty list ["",""]
-  }
-  dns_server_list = var.env[var.environment].dns_server_list
-  vmgateway       = var.ipv4_gateway
-  network_type    = var.network_type
-  ipv4submask     = var.ipv4submask
+  } : var.network
+  dns_server_list        = var.env[var.environment].dns_server_list
+  vmgateway              = var.ipv4_gateway
+  network_type           = var.network_type
+  ipv4submask            = var.ipv4submask
 }
