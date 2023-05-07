@@ -13,7 +13,7 @@ provider "vsphere" {
 module "wtw-onprem-linux" {
   source                    = "Terraform-VMWare-Modules/vm/vsphere"
   version                   = "3.5.0"
-  vmname                    = "${var.env[var.environment].app_prefix}-${var.application_name}"
+  vmname                    = format("%s-%s",var.env[var.environment].app_prefix,var.application_name)
   dc                        = var.env[var.environment].dc
   vmrp                      = var.env[var.environment].vmrp #Works with ESXi/Resources
   vmfolder                  = var.env[var.environment].vmfolder #Works with ESXi/Resources
