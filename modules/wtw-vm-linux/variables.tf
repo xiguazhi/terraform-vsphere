@@ -135,6 +135,8 @@ variable "env" {
 
 }
 
+variable "network_type" {}
+
 variable "application_name" {
     type = string
     default = "actions"
