@@ -135,6 +135,8 @@ variable "env" {
 
 }
 
+variable "ipv4submask" {}
+
 variable "network_type" {}
 
 variable "application_name" {
