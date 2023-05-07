@@ -28,7 +28,6 @@ variable "env" {
         ds_cluster = string
         instances = number
         cpu_number = number
-        num_cores_per_socket = number
         memory_hot_add_enabled = bool
         ram_size = number
         ipv4submask = list(string)
@@ -81,9 +80,8 @@ variable "env" {
             vmfolder = "Stage/Application",
             ds_cluster = "wdBlue",
             instances = 3,
-            cpu_number = 1,
-            num_cores_per_socket = 4,
-            ram_size = 8192
+            cpu_number = 4,
+            ram_size = 8192,
             memory_hot_add_enabled = true,
             ipv4submask = ["24"],
             ipv4network = "Server VLAN",
@@ -100,8 +98,7 @@ variable "env" {
             vmfolder = "prod/Application",
             ds_cluster = "wdBlue",
             instances = 4,
-            cpu_number = 1,
-            num_cores_per_socket = 4,
+            cpu_number = 4,
             ram_size = 8192,
             memory_hot_add_enabled = true,
             ipv4submask = ["24"],
@@ -120,7 +117,6 @@ variable "env" {
             ds_cluster = "wdBlue",
             instances = 4,
             cpu_number = 4,
-            num_cores_per_socket = 4,
             ram_size = 8192,
             memory_hot_add_enabled = true,
             ipv4submask = ["24"],
