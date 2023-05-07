@@ -43,7 +43,7 @@ variable "env" {
             dc = "bsorenson.io",
             app_prefix = "bsd",
             vmrp = "dev",
-            vmfolder = "Pipeline",
+            vmfolder = "Templates",
             ds_cluster = "wdBlue",
             instances = 1,
             cpu_number = 1,
@@ -148,12 +148,6 @@ variable "ipv4_gateway" {
 variable ipv4_address {
     type = list
     default = [""]
-}
-
-
-variable "namefmt" {
-    type = string
-    default = "%0d"
 }
 
 
